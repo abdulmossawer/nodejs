@@ -59,9 +59,11 @@
 const express = require("express");
 const app = express();
 const db = require("./db.js");
+require('dotenv').config();
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json()); // req.body
+const PORT = process.env.PORT || 3000
 
 
 app.get("/", function (req, res) {
@@ -79,6 +81,7 @@ app.use('/person', personRoutes)
 app.use('/menu', menuRoutes)
 
 
-app.listen(3000, () => {
+
+app.listen(PORT, () => {
   console.log("Abe main toh chll gya 3000 pr");
 });
